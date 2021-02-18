@@ -1,6 +1,7 @@
 #include <stdio.h>
 int main()
 {
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     int n;
     scanf("%d",&n);
     int t=0;

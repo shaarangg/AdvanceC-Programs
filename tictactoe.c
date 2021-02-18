@@ -1,5 +1,6 @@
 #include<stdio.h>
 int main(){
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     char tictac[3][3];
     int r,c;
     int count=0;

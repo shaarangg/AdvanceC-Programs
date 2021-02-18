@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 int main(){
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     int choice;
     printf("Enter \n1. Armstrong number\n2. Perfect number\n3. Perfect square\n");
     scanf("%d",&choice);

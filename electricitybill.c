@@ -1,5 +1,6 @@
 #include<stdio.h>
 int main(){
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     int units;
     printf("Enter the units\n");
     scanf("%d",&units);
@@ -11,10 +12,11 @@ int main(){
         bill=(units-400)*8 + 100*6 + 300*4;
     }
     else if(units<401 && units>300){
-        bill = (units-300)* + 300*4;
+        bill = (units-300)*6 + 300*4;
     }
     else{
         bill = units*4;
     }
     printf("The electricity bill is %d",bill);
+    return 0;
 }

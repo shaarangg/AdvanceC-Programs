@@ -1,5 +1,6 @@
 #include<stdio.h>
 int main(){
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     printf("Enter the dimension NxN for matrix\n");
     int n;
     scanf("%d",&n);

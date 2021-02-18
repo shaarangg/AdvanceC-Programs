@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 int main(){
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     printf("Enter a string\n");
     char ch[100];
     scanf("%[^\n]s",ch);

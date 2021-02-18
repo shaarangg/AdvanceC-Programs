@@ -1,11 +1,12 @@
 #include<stdio.h>
 int main(){
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     int n;
     printf("Enter the no.\n");
     scanf("%d",&n);
-    for(int i=97; i<(97+n);i++){
-        for(int j=97; j<=i;j++){
-            printf("%c",i);
+    for(int i=0; i<n;i++){
+        for(int j=0; j<=i;j++){
+            printf("%c ",i+97);
         }
         printf("\n");
     }

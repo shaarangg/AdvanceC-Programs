@@ -1,5 +1,6 @@
 #include<stdio.h>
 int main(){
+    printf("SHAARANG SINGH\n19BCT0215\n\n");
     char c;
     int n;
     printf("Enter a character\n");
