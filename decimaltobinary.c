@@ -7,7 +7,6 @@ int main(){
     int a=1;
     int b=0;
     while(n>0){
-    while(n>0){
         b = n%2;
         bin=bin+a*b;
         n/=2;
