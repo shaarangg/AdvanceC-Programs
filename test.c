@@ -11,9 +11,11 @@
 //     return 0;
 // }
 void main(){
-    char a[] = "hello";
-    char b[2];
-    strcpy(b,a);
-    printf("%s",b);
-    printf("\n%d",strlen(b));
+    int a = 2+3/4*4/4+8*2+5/8;
+    printf("%d",a);
+    // char a[] = "hello";
+    // char b[2];
+    // strcpy(b,a);
+    // printf("%s",b);
+    // printf("\n%d",strlen(b));
 }
