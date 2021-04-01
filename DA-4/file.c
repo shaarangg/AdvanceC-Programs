@@ -40,4 +40,5 @@ int main()
     printf("No. of words are : %d\n",w);
     printf("No. of tabs are : %d\n",t);
     printf("No. of lines are : %d\n",n);
+    fclose(f);
 }
