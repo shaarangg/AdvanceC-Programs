@@ -1,20 +1,14 @@
-#include <stdio.h>
-#include<string.h>
-void reverse(char *c, int begin, int end){
-    char ch;
-    if(begin>=end)
-        return;
-    ch = (*(c+begin));
-    *(c+begin) = *(c+end);
-    *(c+end) = ch;
-    reverse(c, ++begin, --end);
-}
+#include<stdio.h>
+#include<stdlib.h>
 int main(){
-    printf("Enter a string to reverse: ");
-    char s[1000];
-    scanf("%s",s);
-    int begin = 0, end = strlen(s)-1;
-    reverse(s,begin,end);
-    printf("%s", s);
-    return 1;
+    int *a;
+    a = (int *)malloc(sizeof(int)*3);
+    for(int i=0; i<3; i++){
+        scanf("%d",&a[i]);
+    }
+    printf("\n");
+    for(int i=0; i<3; i++){
+        printf("%d\n",*a);
+        a++;
+    }    
 }

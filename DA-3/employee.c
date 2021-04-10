@@ -1,19 +1,93 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <ctype.h>
+
+typedef struct
+{
+    int day;
+    int month;
+    int year;
+}date;
+
+date todate(char* doj);
+int validate_date(date d);
+int validate_phone(char *ph);
+
 typedef struct
 {
     int empid;
     char name[15];
-    char date[10];
-    int phone;
+    date doj;
+    char phone[11];
 }db;
-int main()
+
+void read(db emp[], int n);
+
+date todate(char* doj)
 {
-    int n;
-    printf("Enter the no. of employess\n");
-    scanf("%d",&n);
-    db emp[n];
+    date d;
+    char dp[3][5];
+    int i=0;
+    int j=0;
+    int c=0;
+    while(1)
+    {
+        if(doj[c]=='\n')
+        {
+            break;
+        }
+        if(doj[c]=='/')
+        {
+            dp[i][j]='\0';
+            c+=1;
+            i+=1;
+            j=0;
+            continue;
+        }
+        dp[i][j]=doj[c];
+        c+=1;
+        j+=1;
+    }
+    d.day = atoi(dp[0]);
+    d.month = atoi(dp[1]);
+    d.year = atoi(dp[2]);
+    return d;    
+}
+
+int validate_date(date d)
+{
+    int mon_days[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    if(d.month>12)
+        return 0;
+    if(d.month==2)
+    {
+        if((d.year%4==0 && d.year%100!=0) || d.year%400==0)
+        {
+            mon_days[1]=29;
+        }
+    }
+    if(d.day>mon_days[d.month - 1])
+        return 0;
+    else
+        return 1;
+}
+
+int validate_phone(char *ph)
+{
+    if(strlen(ph)!=10)
+        return 0;
+    for(int i=0; i<10; i++)
+    {
+        if(!isdigit(ph[i]))
+            return 0;
+    }
+    return 1;
+}
+
+void read(db emp[], int n)
+{
+    char jd[20];
     for(int i=0; i<n; i++)
     {
         printf("Enter employee ID:\n");
@@ -21,24 +95,40 @@ int main()
         printf("Enter name:\n");
         fflush(stdin);
         fgets(emp[i].name,15,stdin);
-        printf("Enter date:\n");
-        fgets(emp[i].date,10,stdin);
-        fflush(stdin);
+        printf("Enter date of joining:\n");
+        fgets(jd,20,stdin);
+        emp[i].doj=todate(jd);
+        if(!validate_date(emp[i].doj))
+        {
+            printf("Invalid date: Enter details of this employee again\n");
+            i--;
+            continue;
+        }
         printf("Enter mobile number:\n");
-        scanf("%d",&emp[i].phone);
+        fgets(emp[i].phone,11,stdin);
+        fflush(stdin);
+        if(!validate_phone(emp[i].phone))
+        {
+            printf("Invalid phone number: Enter details of this employee again\n");
+            i--;
+        }
     }
-    long d = 1+30+2010*365;
+}
+
+int main()
+{
+    int n;
+    printf("Enter the no. of employess\n");
+    scanf("%d",&n);
+    db emp[n];
+    read(emp,n);
     printf("\nEmployees who are eligible to recieve the gift are :\n");
     for(int i=0; i<n; i++)
-    {   
-        long dt = emp[i].date[0]-'0'+emp[i].date[1]-'0';
-        long m = (emp[i].date[3]-'0')*10+(emp[i].date[4]-'0')*30;
-        long y = ((emp[i].date[6]-'0')*1000+(emp[i].date[7]-'0')*100+(emp[i].date[8]-'0')*10+(emp[i].date[9])-'0')*365;
-        //Assuming that a year has 365 days and a month has 30 days
-        if(dt+m+y<d  && emp[i].empid%5==0)
+    {
+        if(emp[i].doj.year<2010  && emp[i].empid%5==0)
         {
             printf("Name : %s",emp[i].name);
-            printf("Mobile : %d\n\n",emp[i].phone);
+            printf("Mobile : %s\n\n",emp[i].phone);
         }
     }
     return 0;

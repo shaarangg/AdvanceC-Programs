@@ -1,21 +1,22 @@
 #include<stdio.h>
-#include<string.h>
-// void print(int x, int y, int z){
-//     printf("%d %d %d\n",x,y,z);
-// }
-// int main(){
-//     int a=5;
-//     print(a,++a,a++);
-//     printf("%d %d %d",a,++a,a++);  // We'll get output 7 7 5 this because arguements 
-//                                    // are passed from right to left always in C
-//     return 0;
-// }
-void main(){
-    int a = 2+3/4*4/4+8*2+5/8;
-    printf("%d",a);
-    // char a[] = "hello";
-    // char b[2];
-    // strcpy(b,a);
-    // printf("%s",b);
-    // printf("\n%d",strlen(b));
+#include<stdlib.h>
+typedef struct{
+    int a;
+    int b;
+    int *c;
+}test;
+int main(){
+    test sample;
+    sample.a=5;
+    sample.b=10;
+    sample.c = (int *)malloc(sizeof(int)*3);
+    for(int i=0; i<3; i++){
+        scanf("%d",&sample.c[i]);
+    }
+    printf("\n");
+    for(int i=0; i<3; i++){
+        printf("%d\n",*sample.c);
+        sample.c++;
+    }
+    return 0;
 }
