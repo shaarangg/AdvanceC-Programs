@@ -13,7 +13,7 @@ int main()
 {
     printf("Shaarang\n19BCT0215\n");
     FILE *fp,*ft;
-    fp = fopen("student,dat","rb+");
+    fp = fopen("student.dat","rb+");
     if(fp==NULL)
     {
         fp = fopen("student.dat","wb+");
