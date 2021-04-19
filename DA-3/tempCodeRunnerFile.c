@@ -1,1 +1,0 @@
-printf("%f\n",p[i].avg);
