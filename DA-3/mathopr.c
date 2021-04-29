@@ -1,5 +1,5 @@
 #include<stdio.h>
-void p(void (*opr)(int,int),int a, int b);
+void p(void (*)(int,int),int,int);
 void add(int a, int b);
 void sub(int a, int b);
 void mul(int a, int b);
@@ -8,7 +8,6 @@ int main()
 {
     printf("Shaarang\n19BCT0215\n");
     int a,b,n;
-    void (*ptr[4])(int,int);
     printf("Enter 2 no.s\n");
     scanf("%d%d",&a,&b);
     printf("Enter\n1: Add\n2: Subtract\n3: Multiply\n4: Divide\n");
