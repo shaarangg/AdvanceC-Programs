@@ -37,7 +37,7 @@ int main()
             printf("Department - Assembly\n");
         else if(e[i].d==Manufacturing)
             printf("Department - Manufacturing\n");
-        else if(e[i].d==2)
+        else if(e[i].d==Accounts)
             printf("Department - Accounts\n");
         else
             printf("Department - Stores\n");
