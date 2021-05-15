@@ -1,0 +1,1 @@
+enum day {sunday = 1, tuesday, wednesday, thursday, friday, saturday};
